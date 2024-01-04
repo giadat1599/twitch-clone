@@ -60,7 +60,10 @@ export const ChatForm = ({
                value={value}
                disabled={isDisabled}
                placeholder="Send a message"
-               className={cn("border-white/10", isFolowersOnly && "rounded-t-none border-t-0")}
+               className={cn(
+                  "border-white/10",
+                  (isFolowersOnly || isDelayed) && "rounded-t-none border-t-0"
+               )}
             />
          </div>
          <div className="ml-auto">
