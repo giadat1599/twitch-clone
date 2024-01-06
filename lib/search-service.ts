@@ -18,8 +18,13 @@ export const getSearch = async (term?: string) => {
             OR: [{ name: { contains: term } }, { user: { username: { contains: term } } }],
             user: { NOT: { blocking: { some: { blockedId: userId } } } },
          },
-         include: {
+         select: {
             user: true,
+            id: true,
+            name: true,
+            isLive: true,
+            thumbnailUrl: true,
+            updatedAt: true,
          },
          orderBy: [
             {
